@@ -1,0 +1,38 @@
+version: "3.2"
+services:
+  service:
+    build: './apache2/'
+    restart: always
+    networks:
+      - internal
+    volumes:
+      - ./www/:/var/www/html
+      - ./apache2/apache_default.conf:/etc/apache2/sites-available/000-default.conf
+      - ./apache2/php.ini:/etc/php/7.2/apache2/php.ini
+    ports:
+      - "80:80"      
+  mysql:
+    image: mysql:5.6.40
+    restart: always
+    volumes:
+      - mysql_vol:/var/lib/mysql
+      - ./mysql/custom_my.cnf:/etc/mysql/mysql.conf.d/custom_my.cnf
+    networks:
+      - internal
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=true
+      - MYSQL_USER=user
+      - MYSQL_PASS=pass
+    ports:
+      - "3306:3306"
+  redis:
+    image: redis:latest
+    restart: always
+    networks:
+      - internal
+      
+networks:
+  internal:
+volumes:
+  mysql_vol:
+  storage_vol:
