@@ -17,6 +17,7 @@ services:
     volumes:
       - mysql_vol:/var/lib/mysql
       - ./mysql/custom_my.cnf:/etc/mysql/mysql.conf.d/custom_my.cnf
+      - ./mysql/mysql.cnf:/etc/mysql/conf.d/mysql.cnf
     networks:
       - internal
     environment:

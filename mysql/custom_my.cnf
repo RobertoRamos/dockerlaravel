@@ -1,0 +1,5 @@
+[mysqld]
+binlog_format=ROW
+log_bin=/var/log/mysql/mysql-bin.log
+max_binlog_size  = 100M
+server_id=1
