@@ -1,7 +1,14 @@
 .idea
 apache2/conf/*
+!apache2/conf/nofile
+
 servicios/*
-docker-compose.yml
-nodejs/*
+!servicios/nofile
+
 nginx/*
 !nginx/nginx_default.conf
+
+nodejs/*
+!nodejs/nofile
+
+docker-compose.yml
