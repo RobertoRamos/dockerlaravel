@@ -1,14 +1,14 @@
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 MAINTAINER roberto.ramos.e@gmail.com
 ENV DEBIAN_FRONTEND=noninteractive
-
+ENV USER_CI=builds
 #ENV GIT_NAME="Roberto Ramos"
 #ENV GIT_EMAIL="roberto.ramos.e@gmail.com"
 
 
 RUN apt-get update
-RUN apt-get install -y software-properties-common python-software-properties
-RUN LC_ALL=C.UTF-8 add-apt-repository -y -u ppa:ondrej/php
+RUN apt-get install -y software-properties-common # python-software-properties
+# RUN LC_ALL=C.UTF-8 add-apt-repository -y -u ppa:ondrej/php
 	
 RUN apt-get update && apt-get install -yq --no-install-recommends \
     apt-utils \
@@ -63,15 +63,15 @@ WORKDIR /var/www/html
 RUN rm index.html
 
 # Configure user
-RUN useradd -ms /bin/bash builds
-RUN usermod -a -G www-data builds && usermod -a -G builds www-data
-RUN chmod -R 747 /home/builds && chown -Rf builds:builds /home/builds
+RUN useradd -ms /bin/bash $USER_CI
+RUN usermod -a -G www-data $USER_CI && usermod -a -G $USER_CI www-data
+RUN chmod -R 747 /home/$USER_CI && chown -Rf builds:$USER_CI /home/$USER_CI
 
-#USER builds
-#RUN git config --global user.name GIT_NAME && git config --global user.email GIT_EMAIL
+#USER $USER_CI
+#RUN git config --global user.name $GIT_NAME && git config --global user.email $GIT_EMAIL
 
 USER root
-RUN chown -Rf www-data:www-data /var/www/html
+RUN chown -Rf $USER_CI:www-data /var/www
 
 VOLUME [ "/var/www/html" ]
 
