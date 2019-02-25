@@ -34,7 +34,7 @@ services:
       - internal
     volumes:
       - ./servicios/backoffice/:/var/www/html
-      - ./apache2/apache_service_back.conf:/etc/apache2/sites-available/000-default.conf
+      - ./apache2/apache_default:/etc/apache2/sites-available/000-default.conf
       #- ./apache2/php.ini:/etc/php/7.2/apache2/php.ini
     ports:
       - "80:80"
