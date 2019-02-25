@@ -28,7 +28,8 @@ services:
       - "3306:3306"
 
   service_back:
-    build: './apache2/'
+    image: robertoramos/docker_laravel:latest
+    #build: './apache2/'
     restart: always
     networks:
       - internal
