@@ -15,6 +15,8 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
     curl \
     # Install git
     git \
+    # Install unzip
+    unzip \
     # Install apache
     apache2 \
     # Install php 7.2

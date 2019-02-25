@@ -1,5 +1,7 @@
 [mysqld]
 binlog_format=ROW
 log_bin=/var/log/mysql/mysql-bin.log
-max_binlog_size  = 100M
+max_binlog_size=200M
 server_id=1
+explicit_defaults_for_timestamp=1
+log_bin_trust_function_creators=1

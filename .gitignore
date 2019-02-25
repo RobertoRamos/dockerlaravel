@@ -1,2 +1,7 @@
-www
 .idea
+apache2/conf/*
+servicios/*
+docker-compose.yml
+nodejs/*
+nginx/*
+!nginx/nginx_default.conf
