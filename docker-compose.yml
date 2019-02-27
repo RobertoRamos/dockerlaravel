@@ -34,8 +34,8 @@ services:
     networks:
       - internal
     volumes:
-      - ./servicios/backoffice/:/var/www/html
-      - ./apache2/apache_default:/etc/apache2/sites-available/000-default.conf
+      - ./servicios/${ENV_APACHE_SITE_DIR}:/var/www/html
+      - ./apache2/${ENV_APACHE_SITE_DEFAULT}:/etc/apache2/sites-available/000-default.conf
       #- ./apache2/php.ini:/etc/php/7.2/apache2/php.ini
     ports:
       - "80:80"
@@ -52,14 +52,14 @@ services:
     # depends_on:
       # - mysql
    
-  # service_win:
+  # service_other:
     # build: './apache2/'
     # restart: always
     # networks:
       # - internal
     # volumes:
-      # - ./servicios/winchile/:/var/www/html
-      # - ./apache2/apache_service_win.conf:/etc/apache2/sites-available/000-default.conf
+      # - ./servicios/service_other/:/var/www/html
+      # - ./apache2/apache_service_other.conf:/etc/apache2/sites-available/000-default.conf
       # #- ./apache2/php.ini:/etc/php/7.2/apache2/php.ini
       
 networks:

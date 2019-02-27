@@ -11,3 +11,4 @@ query_cache_type=0
 query_cache_limit=10M
 innodb_buffer_pool_size=8G
 innodb_log_file_size=16M
+innodb_thread_concurrency=0

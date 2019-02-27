@@ -1,6 +1,7 @@
 .idea
 apache2/conf/*
 !apache2/conf/nofile
+.env
 
 servicios/*
 !servicios/nofile
@@ -10,5 +11,3 @@ nginx/*
 
 nodejs/*
 !nodejs/nofile
-
-docker-compose.yml
