@@ -72,6 +72,7 @@ RUN chmod -R 747 /home/$USER_CI && chown -Rf builds:$USER_CI /home/$USER_CI
 
 USER root
 RUN chown -Rf $USER_CI:www-data /var/www
+RUN rm /etc/localtime && ln -s /usr/share/zoneinfo/America/Santiago /etc/localtime
 
 VOLUME [ "/var/www/html" ]
 
