@@ -42,16 +42,9 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
     php-pear \
     php-imagick \
     # Install tools
-    openssl 
-    nano \
-    graphicsmagick \
-    imagemagick \
-    mysql-client \
-    iputils-ping \
-	ssh \
-	sudo \
-    locales \
-	libcurl3-openssl-dev \
+    openssl nano graphicsmagick \
+    imagemagick mysql-client iputils-ping \
+	ssh sudo locales libcurl3-openssl-dev \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Install composer
