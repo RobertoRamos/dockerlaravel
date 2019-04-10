@@ -23,6 +23,7 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
     libapache2-mod-php7.2 \
     php7.2-cli \
     php7.2-json \
+    php7.2-dev \
 	php7.2-common \
     php7.2-curl \
     php7.2-fpm \
@@ -38,9 +39,10 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
     php7.2-xml \
     php7.2-zip \
     php7.2-intl \
+    php-pear \
     php-imagick \
     # Install tools
-    openssl \
+    openssl 
     nano \
     graphicsmagick \
     imagemagick \
@@ -49,6 +51,7 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
 	ssh \
 	sudo \
     locales \
+	libcurl3-openssl-dev \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Install composer
