@@ -11,3 +11,7 @@ nginx/*
 
 nodejs/*
 !nodejs/nofile
+
+golang/*
+
+./docker-compose.yml
