@@ -2,7 +2,7 @@
 apache2/conf/*
 !apache2/conf/nofile
 .env
-
+docker-compose.yml
 servicios/*
 !servicios/nofile
 
@@ -14,4 +14,3 @@ nodejs/*
 
 golang/*
 
-./docker-compose.yml
