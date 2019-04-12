@@ -4,7 +4,7 @@ services:
   nodejs:
     image: nginx:latest
     restart: always
-    container_name: production_nginx
+    container_name: proxy_nginx
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
       - ./nginx/error.log:/etc/nginx/error_log.log
@@ -12,31 +12,37 @@ services:
     networks:
       - internal
     environment:
+      - TZ=America/Santiago
       - ENV=development
-      - APPLICATION_URL=http://service
+      - APPLICATION1_URL=http://backoffice
+      - APPLICATION2_URL=http://winchile
     ports:
       - 80:80
       - 443:443
       
-  service:
+  service.lan:
     image: robertoramos/docker_laravel:latest
-    container_name: service
+    container_name: service.lan
     #build: './apache2/'
     restart: always
     networks:
       - internal
+    environment:
+      - TZ=America/Santiago
     volumes:
       - ./servicios/${ENV_APACHE_SITE_DIR}:/var/www/html
       - ./apache2/${ENV_APACHE_SITE_DEFAULT}:/etc/apache2/sites-available/000-default.conf
     expose:
       - "80"
       
-  winchile:
+  otherservice.lan:
     image: robertoramos/docker_laravel:latest
-    container_name: winchile
+    container_name: otherservice.lan
     restart: always
     networks:
       - internal
+    environment:
+      - TZ=America/Santiago
     volumes:
       - ./servicios/${ENV_APACHE_SITE_DIR2}:/var/www/html
       - ./apache2/${ENV_APACHE_SITE_DEFAULT2}:/etc/apache2/sites-available/000-default.conf
