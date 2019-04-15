@@ -50,6 +50,9 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
 # Install composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
+# Install NodeJS
+RUN curl -sL https://deb.nodesource.com/setup_10.x -o nodesource_setup.sh && bash nodesource_setup.sh && apt install nodejs
+
 # Set locales
 RUN locale-gen en_US.UTF-8 es_ES.UTF-8
 
