@@ -14,8 +14,6 @@ services:
     environment:
       - TZ=America/Santiago
       - ENV=development
-      - APPLICATION1_URL=http://backoffice
-      - APPLICATION2_URL=http://winchile
     ports:
       - 80:80
       - 443:443
