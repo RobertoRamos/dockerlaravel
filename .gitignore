@@ -5,9 +5,10 @@ apache2/conf/*
 docker-compose.yml
 servicios/*
 !servicios/nofile
+!servicios/service/benchmark.php
 
 nginx/*
-!nginx/nginx_default.conf
+!nginx/nginx.conf
 
 nodejs/*
 !nodejs/nofile

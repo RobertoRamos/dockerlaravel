@@ -1,12 +1,13 @@
 version: "3.2"
 services:
       
-  nodejs:
-    image: nginx:latest
+  nginx.lan:
+    image: nginx:1.15.12
     restart: always
-    container_name: proxy_nginx
+    container_name: nginx.lan
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/access.log:/etc/nginx/access_log.log
       - ./nginx/error.log:/etc/nginx/error_log.log
       - ./nginx/cache/:/etc/nginx/cache
     networks:
@@ -33,19 +34,19 @@ services:
     expose:
       - "80"
       
-  otherservice.lan:
-    image: robertoramos/docker_laravel:latest
-    container_name: otherservice.lan
-    restart: always
-    networks:
-      - internal
-    environment:
-      - TZ=America/Santiago
-    volumes:
-      - ./servicios/${ENV_APACHE_SITE_DIR2}:/var/www/html
-      - ./apache2/${ENV_APACHE_SITE_DEFAULT2}:/etc/apache2/sites-available/000-default.conf
-    expose:
-      - "80"
+  # otherservice.lan:
+    # image: robertoramos/docker_laravel:latest
+    # container_name: otherservice.lan
+    # restart: always
+    # networks:
+      # - internal
+    # environment:
+      # - TZ=America/Santiago
+    # volumes:
+      # - ./servicios/${ENV_APACHE_SITE_DIR2}:/var/www/html
+      # - ./apache2/${ENV_APACHE_SITE_DEFAULT2}:/etc/apache2/sites-available/000-default.conf
+    # expose:
+      # - "80"
 
   mysql:
     image: mysql:5
