@@ -9,8 +9,7 @@ Para virtualBox hay que asignar los puertos de salida:
  
 Reemplazar:
 
-
+> docker-compose.yml.example >> docker-compose.yml
 > .env.example >> .env
-
 > nginx/nginx_default.conf >> nginx/nginx.conf
  
