@@ -11,5 +11,5 @@ Reemplazar:
 
 - docker-compose.yml.example >> docker-compose.yml
 - .env.example >> .env
-- nginx/nginx_default.conf >> nginx/nginx.conf
+- nginx/nginx_default.conf >> nginx/nginx.conf (solo como lectura)
  
