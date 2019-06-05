@@ -46,6 +46,7 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
     openssl nano graphicsmagick \
     imagemagick mysql-client iputils-ping \
 	ssh sudo locales libcurl3-openssl-dev \
+	wget \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Install composer
@@ -58,6 +59,10 @@ RUN curl -sL https://deb.nodesource.com/setup_10.x -o nodesource_setup.sh && bas
 RUN locale-gen en_US.UTF-8 es_ES.UTF-8
 
 RUN a2enmod rewrite
+
+# Install PHPUnit
+WORKDIR /root
+RUN wget https://phar.phpunit.de/phpunit-7.0.phar && chmod +x phpunit-7.0.phar && mv phpunit-7.0.phar /usr/local/bin/phpunit
 
 WORKDIR /var/www/html
 RUN rm index.html
@@ -73,6 +78,9 @@ RUN chmod -R 747 /home/$USER_CI && chown -Rf builds:$USER_CI /home/$USER_CI
 USER root
 RUN chown -Rf $USER_CI:www-data /var/www
 RUN rm /etc/localtime && ln -s /usr/share/zoneinfo/America/Santiago /etc/localtime
+
+
+
 
 VOLUME [ "/var/www/html" ]
 
