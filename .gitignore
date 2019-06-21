@@ -9,6 +9,7 @@ servicios/*
 
 nginx/*
 !nginx/nginx.conf
+!nginx/proxy.conf
 
 nodejs/*
 !nodejs/nofile
