@@ -71,7 +71,7 @@ RUN rm index.html
 # Configure user
 RUN useradd -ms /bin/bash $USER_CI
 RUN usermod -a -G www-data $USER_CI && usermod -a -G $USER_CI www-data
-RUN chmod -R 747 /home/$USER_CI && chown -Rf USER_CI:$USER_CI /home/$USER_CI
+RUN chmod -R 747 /home/$USER_CI && chown -Rf $USER_CI:$USER_CI /home/$USER_CI
 
 #USER $USER_CI
 #RUN git config --global user.name $GIT_NAME && git config --global user.email $GIT_EMAIL
