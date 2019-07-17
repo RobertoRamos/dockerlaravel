@@ -1,7 +1,10 @@
 FROM ubuntu:18.04
 MAINTAINER roberto.ramos.e@gmail.com
 ENV DEBIAN_FRONTEND=noninteractive
-ENV USER_CI=developer
+ENV USER_CI=www-data
+ENV UID=1001
+ENV GID=1001
+
 #ENV GIT_NAME="Roberto Ramos"
 #ENV GIT_EMAIL="roberto.ramos.e@gmail.com"
 
@@ -77,6 +80,9 @@ RUN chmod -R 747 /home/$USER_CI && chown -Rf $USER_CI:$USER_CI /home/$USER_CI
 #RUN git config --global user.name $GIT_NAME && git config --global user.email $GIT_EMAIL
 
 USER root
+RUN usermod -u $UID www-data
+RUN groupmod -g $GID www-data
+
 RUN chown -Rf $USER_CI:www-data /var/www
 RUN rm /etc/localtime && ln -s /usr/share/zoneinfo/America/Santiago /etc/localtime
 
