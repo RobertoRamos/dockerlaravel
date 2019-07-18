@@ -27,6 +27,9 @@ services:
       - internal
     environment:
       - TZ=America/Santiago
+      #- USER_CI=usuario_linux
+      #- UID=userid_linux
+      #- GID=groupiduser_linux
     volumes:
       - ./servicios/${ENV_APACHE_SITE_DIR}:/var/www/html
       - ./apache2/${ENV_APACHE_SITE_DEFAULT}:/etc/apache2/sites-available/000-default.conf
@@ -40,7 +43,10 @@ services:
     # networks:
       # - internal
     # environment:
-      # - TZ=America/Santiago
+      #- TZ=America/Santiago
+      #- USER_CI=usuario_linux
+      #- UID=userid_linux
+      #- GID=groupiduser_linux
     # volumes:
       # - ./servicios/${ENV_APACHE_SITE_DIR2}:/var/www/html
       # - ./apache2/${ENV_APACHE_SITE_DEFAULT2}:/etc/apache2/sites-available/000-default.conf
