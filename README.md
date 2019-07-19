@@ -19,7 +19,7 @@ Realizar el cambio de UID y GID con los de tu cuenta. Agregar los dominios en /e
 
 --------------------------------------------------------------------------------
 
-# Reemplazar:
+# Para todos reemplazar:
 
 - docker-compose.yml.example >> docker-compose.yml
 - .env.example >> .env
