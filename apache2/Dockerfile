@@ -2,8 +2,8 @@ FROM ubuntu:18.04
 MAINTAINER roberto.ramos.e@gmail.com
 ENV DEBIAN_FRONTEND=noninteractive
 ENV USER_CI=www-data
-ENV UID=1001
-ENV GID=1001
+ENV UID=1000
+ENV GID=1000
 
 #ENV GIT_NAME="Roberto Ramos"
 #ENV GIT_EMAIL="roberto.ramos.e@gmail.com"
