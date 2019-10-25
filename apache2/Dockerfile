@@ -31,6 +31,8 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
     php7.2-curl \
     php7.2-fpm \
     php7.2-gd \
+    php7.2-pgsql \
+    php7.2-pdo-pgsql \
 	php7.2-dba \
 	php7.2-bcmath \
 	php7.2-bz2 \
