@@ -18,6 +18,7 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
     curl \
     # Install git
     git \
+    git-flow \
     # Install unzip
     unzip \
     # Install apache
