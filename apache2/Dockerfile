@@ -52,7 +52,7 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
     # Install tools
     openssl nano graphicsmagick \
     imagemagick mysql-client iputils-ping \
-	ssh sudo locales libcurl3-openssl-dev \
+	ssh sudo locales libcurl3-openssl-dev default-jdk \
 	wget \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
