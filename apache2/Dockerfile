@@ -51,6 +51,7 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
     php-imagick \
     # Install tools
     openssl nano graphicsmagick \
+    memcached \
     imagemagick mysql-client iputils-ping \
 	ssh sudo locales libcurl3-openssl-dev default-jdk \
 	wget libreoffice-writer unoconv \
