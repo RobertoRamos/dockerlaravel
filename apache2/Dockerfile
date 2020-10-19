@@ -92,8 +92,7 @@ RUN groupmod -g $GID $USER_CI
 RUN chown -Rf $USER_CI:www-data /var/www
 RUN rm /etc/localtime && ln -s /usr/share/zoneinfo/America/Santiago /etc/localtime
 
-CMD service memcached start
-
+ENTRYPOINT service memcached restart
 
 VOLUME [ "/var/www/html" ]
 
