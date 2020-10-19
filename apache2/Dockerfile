@@ -92,10 +92,10 @@ RUN groupmod -g $GID $USER_CI
 RUN chown -Rf $USER_CI:www-data /var/www
 RUN rm /etc/localtime && ln -s /usr/share/zoneinfo/America/Santiago /etc/localtime
 
-ENTRYPOINT service memcached restart
 
 VOLUME [ "/var/www/html" ]
 
 EXPOSE 80 443
 
 CMD ["apache2ctl", "-D", "FOREGROUND"]
+CMD ["/usr/bin/memcached","-p","11211","-u","memcached","-m","64"]
