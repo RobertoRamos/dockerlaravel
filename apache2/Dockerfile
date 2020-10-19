@@ -98,4 +98,3 @@ VOLUME [ "/var/www/html" ]
 EXPOSE 80 443
 
 CMD ["apache2ctl", "-D", "FOREGROUND"]
-CMD ["/usr/bin/memcached","-p","11211","-u","memcached","-m","64"]
