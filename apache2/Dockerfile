@@ -92,7 +92,6 @@ RUN groupmod -g $GID $USER_CI
 RUN chown -Rf $USER_CI:www-data /var/www
 RUN rm /etc/localtime && ln -s /usr/share/zoneinfo/America/Santiago /etc/localtime
 
-
 VOLUME [ "/var/www/html" ]
 
 EXPOSE 80 443
